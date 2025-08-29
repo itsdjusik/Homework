@@ -1,4 +1,4 @@
-from src.masks import get_mask_card_number
+from src.cool_names import get_only_names
 
-user_input = input("Введите номер карты: ").strip()
-print(get_mask_card_number(user_input))
+result = get_only_names("src/data/name_test_file")
+print(*result, sep="\n")
