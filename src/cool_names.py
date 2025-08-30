@@ -14,5 +14,5 @@ def get_only_names(file_names: str) -> list[str]:
     print("Файл не найден! Проверьте путь к файлу!")
     return []
 if __name__ == "__main__":
-    result = get_only_names("data/names.txt")
-    print(*result, sep="\n")
+    result = get_only_names("src/data/names.txt")
+    print(*result, sep=", ")
