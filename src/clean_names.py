@@ -18,7 +18,7 @@ def get_only_names(file_names: str) -> list[str]:
 file_path = r"C:\Users\User\PycharmProjects\Homework\src\data\result_filter.txt"
 
 def writing_file(cool_names: list[str], file_path: str) -> None:
-  """Записывает имена в файл"""
+  """Записывает отчищенные от пробелов и цифр имена в файл"""
   try:
     with open(file_path, "w", encoding="utf-8") as file:
       file.write("\n".join(cool_names))
