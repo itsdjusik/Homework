@@ -27,3 +27,17 @@ def create_name_filter(file_names: str) -> tuple[list[str], list[str]]:
         os.makedirs("src/data")
 
 
+path_name_filter = r"src/data/result_filter.txt"
+
+if __name__ == "__main__":
+    english_name, russian_name = create_name_filter(path_name_filter)
+    print()
+    print("Английские имена:")
+    print("-----------------")
+    for name in english_name:
+        print(name, sep=", ")
+    print()
+    print("Русские имена:")
+    print("--------------")
+    for name in russian_name:
+        print(name, sep=", ")
