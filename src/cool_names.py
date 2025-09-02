@@ -13,6 +13,21 @@ def get_only_names(file_names: str) -> list[str]:
   except FileNotFoundError:
     print("Файл не найден! Проверьте путь к файлу!")
     return []
+
+
+file_path = r"C:\Users\User\PycharmProjects\Homework\src\data\result_filter.txt"
+
+def writing_file(cool_names: list[str], file_path: str) -> None:
+  """Записывает имена в файл"""
+  try:
+    with open(file_path, "w", encoding="utf-8") as file:
+      file.write("\n".join(cool_names))
+      print("Список имен успешно сохранен")
+  except FileNotFoundError:
+    print("Файл отсутствует!")
+
+
 if __name__ == "__main__":
     result = get_only_names("src/data/names.txt")
-    print(*result, sep=", ")
+    #print(*result, sep=", ")
+    writing_file(result, file_path)
