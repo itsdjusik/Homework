@@ -5,7 +5,7 @@ def get_mask_card_number(card_number: str) -> str:
     if len(card_number) == 16:
         mask_middle = "*" * 6
         stroke_mask = card_number[:6] + mask_middle + card_number[-4:]
-        block_mask = " ".join([stroke_mask[i : i + 4] for i in range(0, len(stroke_mask), 4)])
+        block_mask = " ".join([stroke_mask[i:i + 4] for i in range(0, len(stroke_mask), 4)])
         return block_mask
     raise ValueError("Введите корректный номер карты!")
 
