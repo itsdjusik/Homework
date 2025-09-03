@@ -31,3 +31,34 @@ def get_date(date: str) -> str:
     formatted_date = date[0:10]
     correct_date = re.sub(r"\-", "\.", formatted_date)
     return ".".join(correct_date.split(".")[::-1])
+
+
+def get_masks():
+    try:
+        while True:
+            print("Выберете, что хотите ввести:")
+            print()
+            print("1 - Тип и номер карты")
+            print("---------------------")
+            print("2 - Номер счета")
+            print("---------------")
+
+            user_input = input("Ваш выбор: ").strip()
+            if user_input == "1":
+                number_account_card = input("Введите тип и номер карты через пробел: ").strip()
+                print(mask_account_card(number_account_card))
+                break
+
+            elif user_input == "2":
+                number_account_card = input("Введите номер счета: ").strip()
+                print(mask_account_card(number_account_card))
+                break
+            else:
+                print("Некорректный вввод! Введите 1 - тип и номер карты, 2 - номер счета")
+                print()
+    except ValueError:
+        print("Вы ввели некорректные данные!")
+
+
+if __name__ == "__main__":
+    get_masks()
