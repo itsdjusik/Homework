@@ -1,3 +1,5 @@
+import re
+
 def mask_account_card(number_account_card: str) -> str:
     """Принимает на вход тип и номер карты и возвращает ее маску в формате
     XXXX XX** **** XXXX, где X — это цифра."""
@@ -20,3 +22,12 @@ def mask_account_card(number_account_card: str) -> str:
             mask_number = "**" + number_account_card[-4:]
             return f"Номер счета: - {mask_number}"
         raise ValueError("Номер счета некорректен!")
+
+
+def get_date(date: str) -> str:
+    """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
+    и возвращает строку с датой в формате 'ДД.ММ.ГГГГ' ('11.03.2024')."""
+
+    formatted_date = date[0:10]
+    correct_date = re.sub(r"\-", "\.", formatted_date)
+    return ".".join(correct_date.split(".")[::-1])
