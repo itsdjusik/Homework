@@ -34,7 +34,7 @@ exclude = "venv"
 
 
 [tool.isort]
-line-length = 119
+line_length = 119
 profile = "black"
 combine_as_imports = true
 
