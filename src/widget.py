@@ -60,5 +60,10 @@ def get_masks():
         print("Вы ввели некорректные данные!")
 
 
+date = "2024-03-11T02:26:18.671407"
+
+
 if __name__ == "__main__":
+    result_date = get_date(date)
+    print(result_date)
     get_masks()
