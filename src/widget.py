@@ -29,6 +29,7 @@ def mask_account_card(number_account_card: str) -> str:
         else:
             raise ValueError("Некорректный номер карты или счета!")
 
+date = "2024-03-11T02:26:18.671407"
 
 def get_date(date: str) -> str:
     """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
@@ -81,5 +82,6 @@ def get_masks():
 
 if __name__ == "__main__":
     get_masks()
+    get_date(date)
 
 
