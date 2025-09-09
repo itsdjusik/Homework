@@ -1,5 +1,4 @@
-from src.widget import get_masks, get_date, date
-
+from src.widget import date, get_date, get_masks
 
 result = get_date(date)
 print(result)

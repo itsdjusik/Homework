@@ -23,8 +23,10 @@ def create_name_filter(file_names: str) -> tuple[list[str], list[str]]:
             return eng_names, rus_names
         except FileNotFoundError:
             print("Файл отсутствует!")
+            return eng_names, rus_names
     else:
         os.makedirs("src/data")
+        return eng_names, rus_names
 
 
 path_name_filter = r"src/data/result_filter.txt"

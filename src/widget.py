@@ -13,10 +13,10 @@ def mask_account_card(number_account_card: str) -> str:
     "Visa Platinum 7000792289606361" -> "Visa Platinum\n7000 79** **** 6361"
     "Счет 12345678901234567890" -> "Счет\n**7890"""
 
-    number_account_card = number_account_card.strip().split()
-    if len(number_account_card) >= 2:
-        type_card = number_account_card[:-1]
-        number_card = number_account_card[-1]
+    parts = number_account_card.strip().split()
+    if len(parts) >= 2:
+        type_card = " ".join(parts[:-1])
+        number_card = parts[-1]
 
         if type_card[0].lower() in ("счет", "счёт") and len(number_card) == 20 and number_card.isdigit():
             mask_number = "**" + number_card[-4:]
@@ -28,8 +28,10 @@ def mask_account_card(number_account_card: str) -> str:
             return f"{' '.join(type_card)}\n{mask_number}"
         else:
             raise ValueError("Некорректный номер карты или счета!")
+    raise ValueError("Неверный ввод! Введите тип и номер карты/счета.")
 
 date = "2024-03-11T02:26:18.671407"
+
 
 def get_date(date: str) -> str:
     """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
@@ -40,7 +42,8 @@ def get_date(date: str) -> str:
     return ".".join(correct_date.split(".")[::-1])
 
 
-def get_masks():
+def get_masks() -> None:
+    """Запрашивает у пользователя ввод, обрабатывает ошибки и печатает результат маски"""
     while True:
 
         try:
@@ -59,8 +62,11 @@ def get_masks():
                     list_account_card = number_account_card.split()
                     if len(list_account_card) < 2:
                         raise ValueError("Введите тип карты!")
-                    if list_account_card[0].lower() not in ("счет", "счёт") and len(list_account_card[-1]) == 16 and \
-                            list_account_card[-1].isdigit():
+                    if (
+                        list_account_card[0].lower() not in ("счет", "счёт")
+                        and len(list_account_card[-1]) == 16
+                        and list_account_card[-1].isdigit()
+                    ):
                         print(mask_account_card(number_account_card))
                         break
                     raise ValueError("Вы выбрали карту, а ввели счет!")
@@ -83,5 +89,3 @@ def get_masks():
 if __name__ == "__main__":
     get_masks()
     get_date(date)
-
-
