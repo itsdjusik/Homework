@@ -40,6 +40,6 @@ if __name__ == "__main__":
         print(name, sep=", ")
     print()
     print("Русские имена:")
-    print("--------------")
+    print("---------------")
     for name in russian_name:
         print(name, sep=", ")
